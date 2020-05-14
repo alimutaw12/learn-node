@@ -4,6 +4,7 @@ const multer = require('multer')
 const options = require("./controllers/options.controller.js")
 const data_input = require("./controllers/data_input.controller.js")
 const harga_dasar_ref = require("./controllers/harga_dasar_ref.controller.js")
+const katalog = require("./controllers/katalog.controller.js")
 const dataSondirUtil = require("./utils/data-sondir.js")
 const hargaDasarUtil = require("./utils/harga-dasar.js")
 const fileUtil = require("./utils/file.js")
@@ -27,6 +28,22 @@ app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
 		console.log(req)
+})
+
+app.get('/katalog/all', (req, res) => {
+    katalog.findAll().then((result) => {
+        res.send(result)
+    }).catch((error) => {
+        res.send(error)
+    })
+})
+
+app.get('/katalog/filter', (req, res) => {
+		options.optionFilter().then((result) => {
+        res.send(result)
+    }).catch((error) => {
+        res.send(error)
+    })
 })
 
 app.post('/kalkulasi', upload.any(), (req, res) => {

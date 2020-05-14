@@ -19,6 +19,7 @@ db.voltage_rating_conductor = require('./voltage_rating_conductor.js')(sequelize
 db.circuit = require('./circuit.js')(sequelize, Sequelize)
 db.data_input = require('./data_input.js')(sequelize, Sequelize)
 db.harga_dasar_ref = require('./harga_dasar_ref.js')(sequelize, Sequelize)
+db.katalog = require('./katalog.js')(sequelize, Sequelize)
 
 // db.kendaraan.belongsTo(db.sopir, { foreignKey: 'karyawanNo', as:'sopir' })
 
