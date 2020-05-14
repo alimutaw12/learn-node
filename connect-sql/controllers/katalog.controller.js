@@ -7,4 +7,11 @@ findAll = async () => {
 		return result
 }
 
+getLinkDoc = async (id) => {
+		let result = await Katalog.findByPk(id)
+
+		return result.link_doc
+}
+
 exports.findAll = findAll
+exports.getLinkDoc = getLinkDoc

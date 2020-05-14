@@ -46,6 +46,14 @@ app.get('/katalog/filter', (req, res) => {
     })
 })
 
+app.get('/katalog/download/:id', (req, res) => {
+    katalog.getLinkDoc(req.params.id).then((result) => {
+        res.download(result)
+    }).catch((error) => {
+        res.send(error)
+    })
+})
+
 app.post('/kalkulasi', upload.any(), (req, res) => {
 		const files = req.files
 		const dataSondir = files.filter((file) => file.fieldname == 'dataSondir')
