@@ -2,6 +2,6 @@ module.exports = {
 		host: "localhost",
 		user: "root",
 		password: "root",
-		database: "pariwisatadb",
+		database: "foundation-pln",
 		dialect: "mysql"
 }
