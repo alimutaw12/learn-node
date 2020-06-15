@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const multer = require('multer')
 const options = require("./controllers/options.controller.js")
 const data_input = require("./controllers/data_input.controller.js")
+const kendaraan = require("./controllers/kendaraan.controller.js")
 const harga_dasar_ref = require("./controllers/harga_dasar_ref.controller.js")
 const katalog = require("./controllers/katalog.controller.js")
 const dataSondirUtil = require("./utils/data-sondir.js")
@@ -25,6 +26,14 @@ const app = express()
 
 app.use(bodyParser.urlencoded({ extended:true }))
 app.use(bodyParser.json())
+
+app.get('/kendaraan', (req, res) => {
+    kendaraan.findAll(req).then((result) => {
+        res.send(result)
+    }).catch((error) => {
+        res.send(error)
+    })
+})
 
 app.get('/', (req, res) => {
 		console.log(req)

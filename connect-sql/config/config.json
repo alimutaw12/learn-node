@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "foundation-pln",
+    "database": "pariwisatadb",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
